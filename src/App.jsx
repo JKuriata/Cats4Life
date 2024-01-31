@@ -49,7 +49,7 @@ function App() {
     <>
       <div className="navBar">
         <h1>Cats4Life</h1>
-        <p>🛒</p>
+        <button>🛒</button>
       </div>
       <div className="catContainer">
         {catData.map((catObj) => { //for every object in catData, generate a CatCard component using its data
