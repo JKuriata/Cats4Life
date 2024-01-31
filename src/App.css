@@ -26,7 +26,8 @@ body {
 .catCard {
   margin: 1rem;
   background-color: rgb(176, 176, 176);
-  width: 22%;
+  width: 26.4rem;
+  /*width: 22%;*/
   border-radius: 5px;
   padding: 5px;
   box-sizing: border-box;
