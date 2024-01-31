@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { faker } from '@faker-js/faker';
+import CatCard from './assets/components/CatCard';
 
 
 function App() {
@@ -8,8 +9,17 @@ function App() {
   const [catData, setCatData] = useState([]);
   const [basketItems, setBasketItems] = useState([]);
   
+  class Cat{ //cat object
+    constructor(_id, image){ //the id and image are passed when creating the object
+      this._id = _id;
+      this.image = image;
+    };
+    name = faker.person.firstName(); //these values are randomly generated with faker
+    breed = faker.animal.cat();
+    cost = faker.commerce.price();
+  };
+  
   const getAllCats = async () => {
-
     try {
       const response = await fetch("https://api.thecatapi.com/v1/images/search?limit=10");
 
@@ -18,7 +28,12 @@ function App() {
       }
       
       const data = await response.json();
-      setCatData(data);
+      //now we set up catData array with cat images given to us by the api
+      let catDataSetup = []; //generate empty array to hold info to be set as catData later
+      data.map((catImg, index) => {
+        catDataSetup.push(new Cat(index, catImg.url)); //for every image, making a new Cat object using that image & then pushing that object into the new array
+      })
+      setCatData(catDataSetup); //setting catData as the array generated
       
     } catch (error) {
       console.log(error);
@@ -26,11 +41,10 @@ function App() {
     }
   };
 
-useEffect(() => {
-  getAllCats();
-}, []);
+  useEffect(() => { //on first run:
+    getAllCats(); //get the api data and place it into the cat info array
+  }, []);
 
-  
   return (
     <>
       <div className="navBar">
@@ -38,18 +52,9 @@ useEffect(() => {
         <p>🛒</p>
       </div>
       <div className="catContainer">
-        {catData.map((cat, index) => {
+        {catData.map((catObj) => { //for every object in catData, generate a CatCard component using its data
           return (
-            <div className="catCard" key={index}>
-              <div className='imgContainer'>
-                <img src={cat.url}/>
-              </div>
-              <div className='catCardText'>
-                <h2>{faker.person.firstName()}</h2>
-                <p>{faker.animal.cat()}</p>
-                <h3>£{faker.commerce.price()}</h3>
-              </div>
-            </div>
+            <CatCard catInfo={catObj}/>
           )
         })}
       </div>
