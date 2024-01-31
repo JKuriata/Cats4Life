@@ -48,3 +48,11 @@ img {
 .catCardText {
   padding-left: 1rem;
 }
+
+.navBar button {
+  border: 0px;
+  background-color: transparent;
+  width: 2rem;
+  font-size: 30px;
+  margin-right: 2rem;
+}
