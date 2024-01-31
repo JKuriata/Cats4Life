@@ -54,7 +54,7 @@ function App() {
       <div className="catContainer">
         {catData.map((catObj) => { //for every object in catData, generate a CatCard component using its data
           return (
-            <CatCard catInfo={catObj}/>
+            <CatCard key={catObj._id} catInfo={catObj}/>
           )
         })}
       </div>

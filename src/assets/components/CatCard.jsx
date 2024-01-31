@@ -1,7 +1,8 @@
 const CatCard = (info) => {
   let catInfo = info.catInfo;
+  let catID = `cat${catInfo._id}`;
     return (
-        <div className="catCard" key={catInfo._id}> {/* key isnt working here, not sure why. maybe because _id is not a string? */}
+        <div className="catCard" id={catID}> {/* key isnt working here, not sure why. maybe because _id is not a string? */}
             <div className='imgContainer'>
             <img src={catInfo.image}/>
           </div>
