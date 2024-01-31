@@ -1,16 +1,17 @@
-/*import { faker } from '@faker-js/faker';
-
-const CatCard = (props) => {
+const CatCard = (info) => {
+  let catInfo = info.catInfo;
     return (
-        <div className="catCard" key={index}>
+        <div className="catCard" key={catInfo.id}>
             <div className='imgContainer'>
-            <img src={cat.url}/>
+            <img src={catInfo.image}/>
           </div>
           <div className='catCardText'>
-            <h2>{faker.person.firstName()}</h2>
-            <p>{faker.animal.cat()}</p>
-            <h3>£{faker.commerce.price()}</h3>
+            <h2>{catInfo.name}</h2>
+            <p>{catInfo.breed}</p>
+            <h3>£{catInfo.cost}</h3>
           </div>
         </div>
-    )
-}*/
+    );
+}
+
+export default CatCard;
