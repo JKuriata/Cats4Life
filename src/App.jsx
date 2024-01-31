@@ -6,7 +6,6 @@ import CatCard from './assets/components/CatCard';
 
 function App() {
   const [error, setErrorMsg] = useState("");
-  const [catImages, setCatImages] = useState([]);
   const [catData, setCatData] = useState([]);
   const [basketItems, setBasketItems] = useState([]);
   
@@ -29,25 +28,21 @@ function App() {
       }
       
       const data = await response.json();
-      setCatImages(data);
+      //now we set up catData array with cat images given to us by the api
+      let catDataSetup = []; //generate empty array to hold info to be set as catData later
+      data.map((catImg, index) => {
+        catDataSetup.push(new Cat(index, catImg.url)); //for every image, making a new Cat object using that image & then pushing that object into the new array
+      })
+      setCatData(catDataSetup); //setting catData as the array generated
       
     } catch (error) {
       setErrorMsg(error.message);
     }
   };
 
-  const setUpCatArray = () => { //this puts all the cat images + their randomly generated info in a single array. it does this by:
-    let catDataCopy = []; // 1. making a blank array
-    catImages.map((catImg, index) => {
-      catDataCopy.push(new Cat(index, catImg.url)); //for every image, making a new Cat object using that image & then pushing that object into the new array
-    })
-    setCatData(catDataCopy); //setting catData as the array generated
-  }
-
   useEffect(() => { //on first run:
-    getAllCats(); //put the api data in its own array
-    setUpCatArray(); //set up the cat data array
-  }, []); //this is causing some issues. page only loads after like 3 refreshes. one of these probably shouldnt be in useEffect
+    getAllCats(); //get the api data and place it into the cat info array
+  }, []);
 
   return (
     <>
