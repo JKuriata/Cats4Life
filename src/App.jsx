@@ -36,6 +36,7 @@ function App() {
       setCatData(catDataSetup); //setting catData as the array generated
       
     } catch (error) {
+      console.log(error);
       setErrorMsg(error.message);
     }
   };
