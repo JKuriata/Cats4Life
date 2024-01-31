@@ -11,8 +11,8 @@ function App() {
   const [basketItems, setBasketItems] = useState([]);
   
   class Cat{ //cat object
-    constructor(id, image){ //the id and image are passed when creating the object
-      this.id = id;
+    constructor(_id, image){ //the id and image are passed when creating the object
+      this._id = _id;
       this.image = image;
     };
     name = faker.person.firstName(); //these values are randomly generated with faker
@@ -47,7 +47,7 @@ function App() {
   useEffect(() => { //on first run:
     getAllCats(); //put the api data in its own array
     setUpCatArray(); //set up the cat data array
-  }, []);
+  }, []); //this is causing some issues. page only loads after like 3 refreshes. one of these probably shouldnt be in useEffect
 
   return (
     <>
