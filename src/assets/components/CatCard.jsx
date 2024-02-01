@@ -8,9 +8,12 @@ const CatCard = (props) => {
           <div className='catCardText'>
             <h2>{(props.catInfo).name}</h2>
             <p>{(props.catInfo).breed}</p>
+            <div className="costBuy">
             <p className="costText">£{(props.catInfo).cost}</p>
+            <button onClick={props.basketAdd}>Add to Basket</button>
+            </div>
           </div>
-          <button onClick={props.basketAdd}>ADD ME!!</button>
+
         </div>
     );
 }

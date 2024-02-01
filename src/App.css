@@ -60,6 +60,7 @@ img {
   width: 2rem;
   font-size: 30px;
   margin-right: 2rem;
+  cursor: pointer;
 }
 
 /* Update your existing CSS or create a new CSS file */
@@ -96,3 +97,29 @@ img {
 /*.basketCat img{
   max-width: 50%;
 }*/
+
+.checkoutBtn {
+  border: 0;
+  background-color: rgb(122, 179, 255);
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.catCard button {
+  display: flex;
+  border: 0;
+  background-color: rgb(122, 179, 255);
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.costBuy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
