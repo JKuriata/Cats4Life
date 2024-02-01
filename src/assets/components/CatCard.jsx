@@ -1,16 +1,16 @@
-const CatCard = (info) => {
-  let catInfo = info.catInfo;
-  let catID = `cat${catInfo._id}`;
+const CatCard = (props) => {
+  let catID = `cat${(props.catInfo)._id}`;
     return (
-        <div className="catCard" id={catID}> {/* key isnt working here, not sure why. maybe because _id is not a string? */}
+        <div className="catCard" id={catID}>
             <div className='imgContainer'>
-            <img src={catInfo.image}/>
+            <img src={(props.catInfo).image}/>
           </div>
           <div className='catCardText'>
-            <h2>{catInfo.name}</h2>
-            <p>{catInfo.breed}</p>
-            <p className="costText">£{catInfo.cost}</p>
+            <h2>{(props.catInfo).name}</h2>
+            <p>{(props.catInfo).breed}</p>
+            <p className="costText">£{(props.catInfo).cost}</p>
           </div>
+          <button onClick={props.basketAdd}>ADD ME!!</button>
         </div>
     );
 }

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import { faker } from '@faker-js/faker';
 import CatCard from './assets/components/CatCard';
+import BasketCat from './assets/components/BasketCat';
 
 function App() {
   const [error, setErrorMsg] = useState("");
@@ -48,6 +49,18 @@ function App() {
     setBasketOpen(!basketOpen); // Toggle basket visibility
   };
 
+  const handleAddBasket = (catObj) => {
+    let basketCopy = [...basketItems];
+    basketCopy.push(catObj);
+    setBasketItems(basketCopy);
+  }
+
+  const handleRemoveBasket = (index) => {
+    let basketCopy = [...basketItems];
+    basketCopy.splice(index, 1);
+    setBasketItems(basketCopy);
+  }
+
   return (
     <>
       <div className="navBar">
@@ -56,12 +69,15 @@ function App() {
       </div>
       <div className="catContainer">
         {catData.map((catObj) => ( //for every object in catData, generate a CatCard component using its data
-          <CatCard key={catObj._id} catInfo={catObj} />
+          <CatCard key={catObj._id} catInfo={catObj} basketAdd={() => handleAddBasket(catObj)}/>
         ))}
       </div>
       <div className={`basket ${basketOpen ? 'open' : ''}`}> {/* Apply 'open' class when basket is open */}
         <h2>Basket</h2>
         {/* Add items to the basket here */}
+        {basketItems.map((catObj, index) => (
+          <BasketCat key={index} catInfo={catObj} basketRemove={() => handleRemoveBasket(index)}/>
+        ))}
       </div>
     </>
   );

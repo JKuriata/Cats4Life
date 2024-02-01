@@ -80,3 +80,19 @@ img {
 .basket.open {
   right: 0; /* Slide basket into view when open */
 }
+
+.basketCat{
+  display: flex;
+  gap:5px;
+  margin-bottom: 10px;
+}
+
+.basketImgContainer{
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  width: 45%;
+}
+
+/*.basketCat img{
+  max-width: 50%;
+}*/
