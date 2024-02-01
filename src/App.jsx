@@ -50,16 +50,16 @@ function App() {
   };
 
   const handleAddBasket = (catObj) => {
-    let basketCopy = [...basketItems];
-    basketCopy.push(catObj);
-    setBasketItems(basketCopy);
-  }
+    setBasketItems([...basketItems, catObj]);
+  };
 
   const handleRemoveBasket = (index) => {
-    let basketCopy = [...basketItems];
-    basketCopy.splice(index, 1);
-    setBasketItems(basketCopy);
-  }
+    const newBasketItems = basketItems.filter((_, idx) => idx !== index);
+    setBasketItems(newBasketItems);
+  };
+
+  // Calculate total cost
+  const totalCost = basketItems.reduce((total, cat) => total + parseFloat(cat.cost), 0);
 
   return (
     <>
@@ -74,10 +74,11 @@ function App() {
       </div>
       <div className={`basket ${basketOpen ? 'open' : ''}`}> {/* Apply 'open' class when basket is open */}
         <h2>Basket</h2>
-        {/* Add items to the basket here */}
+        {/* Pass total cost to BasketCat component */}
         {basketItems.map((catObj, index) => (
-          <BasketCat key={index} catInfo={catObj} basketRemove={() => handleRemoveBasket(index)}/>
+          <BasketCat key={index} catInfo={catObj} basketRemove={() => handleRemoveBasket(index)} totalCost={totalCost}/>
         ))}
+        <h2>Total Cost: ${totalCost.toFixed(2)}</h2> {/* Display total cost */}
       </div>
     </>
   );
