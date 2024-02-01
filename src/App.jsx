@@ -61,11 +61,16 @@ function App() {
   // Calculate total cost
   const totalCost = basketItems.reduce((total, cat) => total + parseFloat(cat.cost), 0);
 
+  const basketItemCount = basketItems.length;
+
   return (
     <>
       <div className="navBar">
         <h1>Cats4Life</h1>
-        <button onClick={toggleBasket}>🛒</button> {/* Toggle basket visibility on click */}
+        <button onClick={toggleBasket} className="basketButton">
+          🛒
+          {basketItems.length > 0 && <span className="basketCounter">{basketItems.length}</span>}
+        </button>{/* Toggle basket visibility on click */}
       </div>
       <div className="catContainer">
         {catData.map((catObj) => ( //for every object in catData, generate a CatCard component using its data
