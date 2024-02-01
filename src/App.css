@@ -56,3 +56,22 @@ img {
   font-size: 30px;
   margin-right: 2rem;
 }
+
+/* Update your existing CSS or create a new CSS file */
+
+.basket {
+  position: absolute; /* Position relative to the parent */
+  top: 5.1rem; /* Position below navbar */
+  right: -100%; /* Start position off-screen */
+  width: 300px;
+  height: calc(100% - 3rem); /* Take up remaining height below navbar */
+  background-color: #eeeeee;
+  border-left: 1px solid #ccc;
+  padding: 20px;
+  transition: right 0.3s ease; /* Apply transition for smooth animation */
+  overflow-y: auto; /* Enable scrolling if content exceeds basket height */
+}
+
+.basket.open {
+  right: 0; /* Slide basket into view when open */
+}
