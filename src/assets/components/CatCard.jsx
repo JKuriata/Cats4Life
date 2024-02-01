@@ -9,7 +9,7 @@ const CatCard = (info) => {
           <div className='catCardText'>
             <h2>{catInfo.name}</h2>
             <p>{catInfo.breed}</p>
-            <h3>£{catInfo.cost}</h3>
+            <p className="costText">£{catInfo.cost}</p>
           </div>
         </div>
     );

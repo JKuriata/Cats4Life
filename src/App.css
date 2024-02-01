@@ -32,6 +32,11 @@ body {
   box-sizing: border-box;
 }
 
+.costText{
+  font-weight: 700;
+  font-size: 19px;
+}
+
 img {
   border-radius: 5px;
   width: 100%;
