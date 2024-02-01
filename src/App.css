@@ -66,7 +66,7 @@ img {
 
 .basket {
   position: absolute; /* Position relative to the parent */
-  top: 5.1rem; /* Position below navbar */
+  top:5.35rem; /* Position below navbar */
   right: -100%; /* Start position off-screen */
   width: 300px;
   height: calc(100% - 3rem); /* Take up remaining height below navbar */
