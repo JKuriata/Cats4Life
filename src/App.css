@@ -73,8 +73,6 @@ img {
   cursor: pointer;
 }
 
-/* Update your existing CSS or create a new CSS file */
-
 .basket {
   position: absolute; /* Position relative to the parent */
   top:5.35rem; /* Position below navbar */
