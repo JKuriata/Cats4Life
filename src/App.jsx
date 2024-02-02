@@ -79,6 +79,7 @@ function App() {
           {basketItems.map((catObj, index) => (
             <BasketCat key={index} catInfo={catObj} basketRemove={() => handleRemoveBasket(index)} totalCost={totalCost}/>
           ))}
+          
           <h2>Total Cost: £{totalCost.toFixed(2)}</h2> {/* Display total cost */}
           <button className="checkoutBtn">Checkout</button>
         </div>

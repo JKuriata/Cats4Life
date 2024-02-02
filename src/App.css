@@ -75,10 +75,10 @@ img {
 
 .basket {
   position: absolute; /* Position relative to the parent */
-  top:5.35rem; /* Position below navbar */
+  top:5.1rem; /* Position below navbar */
   right: -100vw; /* Start position off-screen */
   width: 300px;
-  height: calc(100vh - 3rem); /* Take up remaining height below navbar */
+  height: calc(42rem - 5.35rem); /* Take up remaining height below navbar */
   background-color: #eeeeee;
   border-left: 1px solid #ccc;
   padding: 20px;
@@ -159,3 +159,4 @@ img {
   align-items: center;
   font-weight: bold;
 }
+
